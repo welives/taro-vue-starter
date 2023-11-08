@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
+import Taro from '@tarojs/taro'
 import { request } from '@/api'
 import { useUserStore } from '@/stores'
-import Taro from '@tarojs/taro'
 import './index.scss'
 const { setToken } = useUserStore()
 const login = async () => {

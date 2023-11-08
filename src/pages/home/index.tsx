@@ -1,6 +1,7 @@
 import { View, Text, Button } from '@tarojs/components'
 import { defineComponent } from 'vue'
 import { useCounterStore } from '@/stores'
+import './index.scss'
 
 export default defineComponent({
   setup() {

@@ -1,19 +1,20 @@
 <template>
-  <view class="index">
-    <text>{{ msg }}</text>
+  <view class="flex flex-col items-center justify-center gap-2 h-full">
+    <button type="primary" @tap="login">Go Home</button>
   </view>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script setup>
+import { request } from '@/api'
+import { useUserStore } from '@/stores'
+import Taro from '@tarojs/taro'
 import './index.scss'
-
-export default {
-  setup() {
-    const msg = ref('Hello world')
-    return {
-      msg,
-    }
-  },
+const { setToken } = useUserStore()
+const login = async () => {
+  const res = await request('https://mock.mengxuegu.com/mock/64f5ddc4e70b8004a69e9c4c/expo-starter/login', {
+    method: 'POST',
+  })
+  setToken(res.data)
+  Taro.switchTab({ url: 'pages/home/index' })
 }
 </script>

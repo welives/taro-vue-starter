@@ -38,9 +38,13 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.21.5",
+    "@nutui/icons-vue-taro": "^0.0.9",
+    "@nutui/nutui-taro": "^4.2.0",
     "@tarojs/components": "3.6.18",
     "@tarojs/helper": "3.6.18",
     "@tarojs/plugin-framework-vue3": "3.6.18",
+    "@tarojs/plugin-html": "^3.6.18",
+    "@tarojs/plugin-http": "^3.6.18",
     "@tarojs/plugin-platform-alipay": "3.6.18",
     "@tarojs/plugin-platform-h5": "3.6.18",
     "@tarojs/plugin-platform-jd": "3.6.18",
@@ -51,6 +55,7 @@
     "@tarojs/runtime": "3.6.18",
     "@tarojs/shared": "3.6.18",
     "@tarojs/taro": "3.6.18",
+    "axios": "^1.6.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -84,6 +89,7 @@
     "ts-node": "^10.9.1",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.1.0",
+    "unplugin-vue-components": "^0.25.2",
     "vue-loader": "^17.0.0",
     "weapp-tailwindcss": "^2.10.1",
     "webpack": "5.78.0"

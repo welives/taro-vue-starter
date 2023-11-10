@@ -5,16 +5,16 @@
 </template>
 
 <script setup>
-import Taro from '@tarojs/taro'
 import { request } from '@/api'
 import { useUserStore } from '@/stores'
+import router from '@/routes'
 import './index.scss'
 const { setToken } = useUserStore()
 const login = async () => {
-  const res = await request('https://mock.mengxuegu.com/mock/64f5ddc4e70b8004a69e9c4c/expo-starter/login', {
+  const res = await request('/api/login', {
     method: 'POST',
   })
   setToken(res.data)
-  Taro.switchTab({ url: 'pages/home/index' })
+  router.switchTab({ url: '/pages/home/index' })
 }
 </script>

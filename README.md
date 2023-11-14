@@ -21,6 +21,7 @@ pnpm dev:weapp
 
 - [Taro](https://nervjs.github.io/taro-docs/docs/)
 - [Pinia](https://pinia.vuejs.org/zh/)
+- [pinia-plugin-persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/)
 - [NutUI-Vue](https://nutui.jd.com/)
 - [TypeScript](https://www.tslang.cn/)
 - [TailwindCSS](https://tailwind.nodejs.cn/)

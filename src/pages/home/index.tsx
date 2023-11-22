@@ -1,10 +1,12 @@
 import { View, Text, Button } from '@tarojs/components'
 import { defineComponent } from 'vue'
 import { useCounterStore } from '@/stores'
+import { useAuth } from '@/hooks'
 import './index.scss'
 
 export default defineComponent({
   setup() {
+    useAuth()
     const counter = useCounterStore()
     return () => (
       <View class="flex flex-1 flex-wrap flex-col items-center justify-center gap-4 h-full">

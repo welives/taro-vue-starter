@@ -1,13 +1,13 @@
 import { defineComponent } from 'vue'
 import { useLoad } from '@tarojs/taro'
 import { useUserStore } from '@/stores'
-import router from '@/routes'
+import router from '@/router'
 
 export default defineComponent({
   setup() {
-    const userStore = useUserStore()
+    const isLogged = useUserStore().isLogged
     useLoad(() => {
-      if (userStore.isLogged) {
+      if (isLogged) {
         router.switchTab({ url: '/pages/home/index' })
       } else {
         router.reLaunch({ url: '/pages/index/index' })

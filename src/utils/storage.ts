@@ -1,8 +1,9 @@
 import { setStorageSync, getStorageSync, removeStorageSync } from '@tarojs/taro'
+import { StorageLike } from 'pinia-plugin-persistedstate'
 
 enum StorageSceneKey {
-  DEVICE = 'storage-device-uuid',
   USER = 'storage-user',
+  AUTH = 'storage-auth',
 }
 
 function getItem<T = any>(key: string): T {
@@ -17,3 +18,14 @@ function removeItem(key: string) {
 }
 
 export { getItem, setItem, removeItem, StorageSceneKey }
+
+/** @description 用来给 pinia 持久化存储的方法 */
+export const piniaStorage: StorageLike = {
+  getItem: (key) => {
+    const value = getStorageSync(key)
+    return value ?? null
+  },
+  setItem: (key, value) => {
+    setStorageSync(key, value)
+  },
+}

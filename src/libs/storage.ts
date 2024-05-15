@@ -1,5 +1,5 @@
-import { setStorageSync, getStorageSync, removeStorageSync } from '@tarojs/taro'
-import { StorageLike } from 'pinia-plugin-persistedstate'
+import { getStorageSync, removeStorageSync, setStorageSync } from '@tarojs/taro'
+import type { StorageLike } from 'pinia-plugin-persistedstate'
 
 enum StorageSceneKey {
   USER = 'storage-user',

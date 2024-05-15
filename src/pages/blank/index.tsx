@@ -7,11 +7,10 @@ export default defineComponent({
   setup() {
     const isLogged = useUserStore().isLogged
     useLoad(() => {
-      if (isLogged) {
+      if (isLogged)
         router.switchTab({ url: '/pages/home/index' })
-      } else {
+      else
         router.reLaunch({ url: '/pages/index/index' })
-      }
     })
     return null
   },

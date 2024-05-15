@@ -1,4 +1,4 @@
-import { View, Text, Button } from '@tarojs/components'
+import { Button, Text, View } from '@tarojs/components'
 import { defineComponent } from 'vue'
 import { useCounterStore } from '@/stores'
 import { useAuth } from '@/hooks'

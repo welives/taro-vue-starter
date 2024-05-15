@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { StorageSceneKey, piniaStorage } from '../utils'
+import { StorageSceneKey, piniaStorage } from '../libs'
 
 interface Redirect {
   url: string

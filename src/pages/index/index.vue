@@ -1,16 +1,11 @@
-<template>
-  <view class="flex flex-col items-center justify-center gap-2 h-full">
-    <button @tap="login">Go Home</button>
-  </view>
-</template>
-
 <script setup lang="ts">
 import { request } from '@/api'
-import { useUserStore, useAuthStore } from '@/stores'
+import { useAuthStore, useUserStore } from '@/stores'
 import router from '@/router'
+
 const setToken = useUserStore().setToken
 const auth = useAuthStore()
-const login = async () => {
+async function login() {
   const res = await request('/api/login', { method: 'post' })
   setToken(res.data)
   if (auth.redirect?.url) {
@@ -19,15 +14,24 @@ const login = async () => {
     }
     auth.redirect.tab
       ? router.switchTab({
-          url: auth.redirect.url,
-          success,
-        })
+        url: auth.redirect.url,
+        success,
+      })
       : router.redirectTo({
-          url: auth.redirect.url,
-          success,
-        })
-  } else {
+        url: auth.redirect.url,
+        success,
+      })
+  }
+  else {
     router.switchTab({ url: '/pages/home/index' })
   }
 }
 </script>
+
+<template>
+  <view class="flex flex-col items-center justify-center gap-2 h-full">
+    <button @tap="login">
+      Go Home
+    </button>
+  </view>
+</template>

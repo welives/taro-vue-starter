@@ -1,23 +1,24 @@
 import path from 'node:path'
-import { defineConfig, type UserConfigExport } from '@tarojs/cli'
+import { type UserConfigExport, defineConfig } from '@tarojs/cli'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { UnifiedWebpackPluginV5 } from 'weapp-tailwindcss/webpack'
 import ComponentsPlugin from 'unplugin-vue-components/webpack'
 import NutUIResolver from '@nutui/nutui-taro/dist/resolver'
 import devConfig from './dev'
 import prodConfig from './prod'
+
 const WeappTailwindcssDisabled = ['h5', 'rn'].includes(process.env.TARO_ENV)
 
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
-// @ts-ignore
+// @ts-expect-error
 export default defineConfig(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport = {
     projectName: 'taro-vue-starter',
     date: '2023-11-8',
     designWidth: (input: any) => {
-      if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
+      if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1)
         return 375
-      }
+
       return 750
     },
     deviceRatio: {
@@ -90,7 +91,7 @@ export default defineConfig(async (merge, { command, mode }) => {
               /\.vue\?vue/, // .vue
             ],
             resolvers: [NutUIResolver({ taro: true })],
-          })
+          }),
         )
       },
     },
@@ -132,7 +133,7 @@ export default defineConfig(async (merge, { command, mode }) => {
               /\.vue\?vue/, // .vue
             ],
             resolvers: [NutUIResolver({ taro: true })],
-          })
+          }),
         )
       },
     },
